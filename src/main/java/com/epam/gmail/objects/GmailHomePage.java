@@ -14,7 +14,7 @@ public class GmailHomePage {
     private static final String PASSWD = ".//*[@id='Passwd']";
     private static final String EMAIL = ".//*[@id='Email']";
     private static final String PRESISTENT_COOKIE = ".//*[@id='PersistentCookie']";
-    private static final String URL = "http://gmail.com";
+
 
     @FindBy(xpath = EMAIL)
     private WebElement email;
@@ -31,7 +31,7 @@ public class GmailHomePage {
         logger.info("Gmail Home page creating");
         this.driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
-        driver.get(URL);
+
     }
 
     public void insertUsername(String username) {
