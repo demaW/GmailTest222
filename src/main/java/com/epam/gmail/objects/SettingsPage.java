@@ -88,6 +88,8 @@ public class SettingsPage {
     }
 
     public void addForwardingAdressAction(String username){
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ADD_FORWARDING_PATH)));
         addForwardingAdress.click();
         forwardingEmailAddress.sendKeys(username);
         forwardingEmailAddress.sendKeys(Keys.ENTER);
