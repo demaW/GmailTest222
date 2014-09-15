@@ -102,8 +102,7 @@ public class SettingsPage {
     }
 
     public void clickSaveButton(){
-        JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click()",saveChangesButton);
+       clickElementJS(saveChangesButton,driver);
     }
 
     public void clickElementJS(WebElement element, WebDriver driver){
