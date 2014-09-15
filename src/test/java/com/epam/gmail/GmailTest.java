@@ -10,7 +10,6 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class GmailTest {
-    private static final String URL = "http://gmail.com";
     private static String EMAIL_SUBJECT_ATTACHMENT = "test subject";
     private static String EMAIL_SUBJECT = "test subject";
     private static final String USERNAME1 = "testautomation1d@gmail.com";
@@ -41,7 +40,7 @@ public class GmailTest {
 
     @Test
     public void gmailTest() {
-        //Step 1: login user 2
+        //Step 1: login user2
         gmailHomeBO = new GmailHomePageBO();
         gmailHomeBO.login(USERNAME2,PASSWORD2);
         //Step 2,3: open settings
