@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="seleniumTest">
-  <test name="GmailTests">
-       <classes>
-          <class name="com.epam.gmail.GmailTest"/>
-      </classes>
-  </test>
+    <test name="GmailTests">
+        <classes>
+            <class name="com.epam.gmail.GmailTest"/>
+        </classes>
+    </test>
 </suite>

@@ -54,32 +54,31 @@ public class SettingsPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickForwarding(){
+    public void clickForwarding() {
         forwardingHyperlink.click();
     }
 
-    public void clickFilters(){
+    public void clickFilters() {
         filtersHyperlink.click();
     }
 
-    public void mailForwarding(String userMail){
+    public void mailForwarding(String userMail) {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        if (checkElement(EXISTING_MAIL_NOT_VERIFIED)){
+        if (checkElement(EXISTING_MAIL_NOT_VERIFIED)) {
             WebElement removeExistingMail = driver.findElement(By.xpath(EXISTING_MAIL_NOT_VERIFIED_REMOVE));
             removeExistingMail.click();
             okButton.click();
         }
-        if (checkElement(EXISTING_MAIL_VERIFIED_OPT)){
+        if (checkElement(EXISTING_MAIL_VERIFIED_OPT)) {
             Select select = new Select(driver.findElement(By.xpath(EXISTING_MAIL_VERIFIED)));
             WebElement selectE = driver.findElement(By.xpath(EXISTING_MAIL_VERIFIED));
             selectE.click();
-            WebDriverWait wait = new WebDriverWait(driver,5);
+            WebDriverWait wait = new WebDriverWait(driver, 5);
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Forward a copy of incoming mail to')]/select[1]//option[contains(text(),'Remove " + userMail + "')]")));
             try {
                 select.selectByVisibleText("Remove " + userMail);
-            }
-            catch (NoSuchElementException e){
-                select.selectByVisibleText("Remove " + userMail+ " (in use)");
+            } catch (NoSuchElementException e) {
+                select.selectByVisibleText("Remove " + userMail + " (in use)");
             }
             selectE.sendKeys(Keys.ENTER);
         }
@@ -88,8 +87,8 @@ public class SettingsPage {
         addForwardingAdressAction(userMail);
     }
 
-    public void addForwardingAdressAction(String username){
-        WebDriverWait wait = new WebDriverWait(driver,5);
+    public void addForwardingAdressAction(String username) {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(ADD_FORWARDING_PATH)));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(EXISTING_MAIL_NOT_VERIFIED)));
         addForwardingAdress.click();
@@ -101,21 +100,20 @@ public class SettingsPage {
         okButton.click();
     }
 
-    public void selectForwardCopyRadiobutton(){
+    public void selectForwardCopyRadiobutton() {
         forwardCopyRadiobutton.click();
     }
 
-    public void clickSaveButton(){
-       clickElementJS(saveChangesButton,driver);
+    public void clickSaveButton() {
+        clickElementJS(saveChangesButton, driver);
     }
 
-    public void clickElementJS(WebElement element, WebDriver driver){
+    public void clickElementJS(WebElement element, WebDriver driver) {
         JavascriptExecutor executor = (JavascriptExecutor) driver;
-        executor.executeScript("arguments[0].click()",element);
+        executor.executeScript("arguments[0].click()", element);
     }
 
-    public boolean checkElement(String xpath){
-
-        return  driver.findElements(By.xpath(xpath)).size()>0;
+    public boolean checkElement(String xpath) {
+        return driver.findElements(By.xpath(xpath)).size() > 0;
     }
 }

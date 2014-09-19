@@ -13,7 +13,7 @@ public class FiltersPageBO {
         filtersPage.clickCreateFilter();
     }
 
-    public void setFiltersMatchers(){
+    public void setFiltersMatchers() {
         filtersPage.checkDeletedCheckbox();
         filtersPage.checkAlwaysMarkAsImportantCheckbox();
         filtersPage.clickCreateFilterButton();

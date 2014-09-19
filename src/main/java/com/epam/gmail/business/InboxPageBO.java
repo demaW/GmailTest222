@@ -2,10 +2,10 @@ package com.epam.gmail.business;
 
 import com.epam.gmail.objects.InboxPage;
 
-public class InboxPageBO extends IPageBO{
+public class InboxPageBO extends IPageBO {
     InboxPage inboxPage;
 
-    public void confirmForward(){
+    public void confirmForward() {
         inboxPage = new InboxPage();
         inboxPage.openMessage();
         inboxPage.clickVerfifcationLink();
@@ -13,7 +13,7 @@ public class InboxPageBO extends IPageBO{
         inboxPage.navigateInbox();
     }
 
-    public void writeMessageWithAttachToUser(String userEmail, String subject){
+    public void writeMessageWithAttachToUser(String userEmail, String subject) {
         inboxPage = new InboxPage();
         navigateInbox();
         inboxPage.clickComposeButton();
@@ -26,7 +26,7 @@ public class InboxPageBO extends IPageBO{
         navigateInbox();
     }
 
-    public void writeMessageToUser(String userEmail, String subject){
+    public void writeMessageToUser(String userEmail, String subject) {
         inboxPage = new InboxPage();
         navigateInbox();
         inboxPage.clickComposeButton();
@@ -37,13 +37,13 @@ public class InboxPageBO extends IPageBO{
         navigateInbox();
     }
 
-    public void navigateInbox(){
+    public void navigateInbox() {
         inboxPage.navigateInbox();
 
         inboxPage.waitUntilInbox();
     }
 
-    public boolean verifyEmailPresence(String subject){
+    public boolean verifyEmailPresence(String subject) {
         inboxPage = new InboxPage();
         boolean result = checkEmailPresence(inboxPage.getSubjects(), subject);
         return result;

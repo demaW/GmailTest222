@@ -15,7 +15,6 @@ public class GmailHomePage {
     private static final String EMAIL = ".//*[@id='Email']";
     private static final String PRESISTENT_COOKIE = ".//*[@id='PersistentCookie']";
 
-
     @FindBy(xpath = EMAIL)
     private WebElement email;
     @FindBy(xpath = PASSWD)
@@ -31,7 +30,6 @@ public class GmailHomePage {
         logger.info("Gmail Home page creating");
         this.driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
-
     }
 
     public void insertUsername(String username) {
@@ -46,8 +44,8 @@ public class GmailHomePage {
         signIn.click();
     }
 
-    public void chechkSingedIn(){
-        if(presistentCookie.isSelected()){
+    public void chechkSingedIn() {
+        if (presistentCookie.isSelected()) {
             presistentCookie.click();
         }
     }

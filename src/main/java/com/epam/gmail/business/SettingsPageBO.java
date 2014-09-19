@@ -5,22 +5,23 @@ import com.epam.gmail.objects.SettingsPage;
 public class SettingsPageBO extends IPageBO {
     SettingsPage settingsPage;
 
-    public void  openForwarding(){
+    public void openForwarding() {
         settingsPage = new SettingsPage();
         settingsPage.clickForwarding();
     }
-    public void setForwarding(String username){
+
+    public void setForwarding(String username) {
         settingsPage = new SettingsPage();
         openForwarding();
         settingsPage.mailForwarding(username);
     }
 
-    public void selectForwardCopyAction(){
+    public void selectForwardCopyAction() {
         settingsPage.selectForwardCopyRadiobutton();
         settingsPage.clickSaveButton();
     }
 
-    public void goToFiltersTab(){
+    public void goToFiltersTab() {
         settingsPage.clickFilters();
     }
 }
