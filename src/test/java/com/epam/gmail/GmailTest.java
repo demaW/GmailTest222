@@ -25,12 +25,13 @@ public class GmailTest {
     private InboxPageBO inboxPageBO;
     private FiltersPageBO filtersPage;
     private TrashPageBO trashPageBO;
-    private ImportantPageBO  importantPageBO;
+    private ImportantPageBO importantPageBO;
+
     @BeforeClass
     public void initDriver() {
         DriverManager.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        EMAIL_SUBJECT += (int) (Math.random()*2000);
-        EMAIL_SUBJECT_ATTACHMENT += (int) (Math.random()*3000);
+        EMAIL_SUBJECT += (int) (Math.random() * 2000);
+        EMAIL_SUBJECT_ATTACHMENT += (int) (Math.random() * 3000);
     }
 
     @AfterClass
@@ -42,7 +43,7 @@ public class GmailTest {
     public void gmailTest() {
         //Step 1: login user2
         gmailHomeBO = new GmailHomePageBO();
-        gmailHomeBO.login(USERNAME2,PASSWORD2);
+        gmailHomeBO.login(USERNAME2, PASSWORD2);
         //Step 2,3: open settings
         gmailMainPageBO = new GmailMainPageBO();
         gmailMainPageBO.openSettings();
@@ -51,13 +52,13 @@ public class GmailTest {
         settingsPageBO.setForwarding(USERNAME3);
         gmailMainPageBO.logout(USERNAME2);
         //Step 6: login user3
-        gmailHomeBO.login(USERNAME3,PASSWORD3);
+        gmailHomeBO.login(USERNAME3, PASSWORD3);
         //Step 7: confirm forward
         inboxPageBO = new InboxPageBO();
         inboxPageBO.confirmForward();
         //Step 8: login user 2
         gmailMainPageBO.logout(USERNAME3);
-        gmailHomeBO.login(USERNAME2,PASSWORD2);
+        gmailHomeBO.login(USERNAME2, PASSWORD2);
         //Step 9: go to forward page
         gmailMainPageBO.openSettings();
         settingsPageBO.openForwarding();
@@ -74,9 +75,9 @@ public class GmailTest {
         gmailMainPageBO.logout(USERNAME2);
         gmailHomeBO.login(USERNAME1, PASSWORD1);
         //Step 14: Send letter with no attach to user2
-        inboxPageBO.writeMessageWithAttachToUser(USERNAME2,EMAIL_SUBJECT_ATTACHMENT); // filepath: D:\fileToSend.txt
+        inboxPageBO.writeMessageWithAttachToUser(USERNAME2, EMAIL_SUBJECT_ATTACHMENT); // filepath: D:\fileToSend.txt
         //Step 15: Send letter with no attach to user2
-        inboxPageBO.writeMessageToUser(USERNAME2,EMAIL_SUBJECT);
+        inboxPageBO.writeMessageToUser(USERNAME2, EMAIL_SUBJECT);
         //Step 16: login user 2
         gmailMainPageBO.navigateInbox();
         gmailMainPageBO.logout(USERNAME1);
@@ -94,7 +95,7 @@ public class GmailTest {
         //Step 19: login user3
         gmailMainPageBO.navigateInbox();
         gmailMainPageBO.logout(USERNAME2);
-        gmailHomeBO.login(USERNAME3,PASSWORD3);
+        gmailHomeBO.login(USERNAME3, PASSWORD3);
         //Step 20: check that user letter from user1 in Inbox
         inboxPageBO.navigateInbox();
         Assert.assertTrue(inboxPageBO.verifyEmailPresence(EMAIL_SUBJECT), "message was not found in Inbox");

@@ -54,6 +54,7 @@ public class InboxPage {
 
     private WebDriver driver;
     private String parentHandle;
+
     public InboxPage() {
         this.driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
@@ -63,78 +64,80 @@ public class InboxPage {
         return message.getText();
     }
 
-    public void openMessage(){
+    public void openMessage() {
         message.click();
     }
 
-    public void clickVerfifcationLink(){
+    public void clickVerfifcationLink() {
         parentHandle = driver.getWindowHandle();
         verificationLink.click();
     }
 
-    public void closeSuccessWindow(){
+    public void closeSuccessWindow() {
         for (String winHandle : driver.getWindowHandles()) {
-            if (!winHandle.equalsIgnoreCase(parentHandle)){
+            if (!winHandle.equalsIgnoreCase(parentHandle)) {
                 driver.switchTo().window(winHandle);
-                 driver.close();
+                driver.close();
             }
         }
         driver.switchTo().window(parentHandle);
     }
 
-    public void clickComposeButton(){
+    public void clickComposeButton() {
         composeButton.click();
     }
 
     public void fillSendToField(String sendTo) {
-        WebDriverWait wait = new WebDriverWait(driver,10);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(sendToTextArea));
         sendToTextArea.clear();
         sendToTextArea.sendKeys(sendTo);
     }
 
-    public void clickAttachFiles(){
+    public void clickAttachFiles() {
         attachFilesButton.click();
     }
 
-    public void clickSendButton(){
+    public void clickSendButton() {
         sendButton.click();
     }
+
     public void writeSubjectMessage(String subject) {
         subjectField.sendKeys(subject);
     }
 
-    public void attachFile(){
+    public void attachFile() {
         try {
             Runtime.getRuntime().exec("src/test/resources/gmail.exe");
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        WebDriverWait wait = new WebDriverWait(driver,20);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(attachment));
     }
 
-    public void waitMessageSend(){
-        WebDriverWait wait = new WebDriverWait(driver,5);
+    public void waitMessageSend() {
+        WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.visibilityOf(messageNotification));
     }
-    public List<WebElement> getSubjects(){
+
+    public List<WebElement> getSubjects() {
         return subjects;
     }
 
-    public void clickInbox(){
+    public void clickInbox() {
         inbox.click();
     }
 
     public void waitUntilInbox() {
-          ExpectedCondition<Boolean> expectedUrl = new ExpectedCondition<Boolean>() {
-                public Boolean apply(WebDriver webDriver) {
-                    String currentUrl = webDriver.getCurrentUrl();
-                    return currentUrl.contains("inbox");
-                }
-            };
-            (new WebDriverWait(driver, 60)).until(expectedUrl);
+        ExpectedCondition<Boolean> expectedUrl = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver webDriver) {
+                String currentUrl = webDriver.getCurrentUrl();
+                return currentUrl.contains("inbox");
+            }
+        };
+        (new WebDriverWait(driver, 60)).until(expectedUrl);
 
     }
 

@@ -25,56 +25,56 @@ public class FiltersPage {
     private WebElement createNewFilter;
     @FindBy(xpath = FROM_INPUT)
     private WebElement fromInput;
-    @FindBy (xpath = HAS_ATTACHMENT)
+    @FindBy(xpath = HAS_ATTACHMENT)
     private WebElement hasAttachmentCheckbox;
     @FindBy(xpath = CREATE_FILTER_WITH_SEARCH)
     private WebElement createFilterWithSerach;
     @FindBy(xpath = DELETE_CHECKBOX)
     private WebElement deleteCheckbox;
-    @FindBy (xpath = ALWAYS_MARK_AS_IMPORTANT_CHECKBOX)
+    @FindBy(xpath = ALWAYS_MARK_AS_IMPORTANT_CHECKBOX)
     private WebElement alwaysMarkAsImportant;
-    @FindBy (xpath = CREATE_FILTER_BUTTON)
+    @FindBy(xpath = CREATE_FILTER_BUTTON)
     private WebElement createFilterButton;
-    @FindBy (xpath = FILTER)
+    @FindBy(xpath = FILTER)
     private WebElement filteOnPage;
     private WebDriver driver;
 
-    public FiltersPage(){
+    public FiltersPage() {
         logger.info("Filters page creating");
         this.driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
     }
 
-    public void clickNewFilter(){
+    public void clickNewFilter() {
         createNewFilter.click();
     }
 
-    public void setFromInput(String username){
+    public void setFromInput(String username) {
         fromInput.sendKeys(username);
     }
 
-    public void checkHasAttachment(){
-       checkCheckbox(hasAttachmentCheckbox);
+    public void checkHasAttachment() {
+        checkCheckbox(hasAttachmentCheckbox);
     }
 
-    public void clickCreateFilter(){
+    public void clickCreateFilter() {
         createFilterWithSerach.click();
     }
 
-    public void checkDeletedCheckbox(){
+    public void checkDeletedCheckbox() {
         checkCheckbox(deleteCheckbox);
     }
 
-    public void checkAlwaysMarkAsImportantCheckbox(){
+    public void checkAlwaysMarkAsImportantCheckbox() {
         checkCheckbox(alwaysMarkAsImportant);
     }
 
-    public void clickCreateFilterButton(){
+    public void clickCreateFilterButton() {
         createFilterButton.click();
     }
 
-    private void checkCheckbox(WebElement element){
-        if (!element.isSelected()){
+    private void checkCheckbox(WebElement element) {
+        if (!element.isSelected()) {
             element.click();
         }
     }

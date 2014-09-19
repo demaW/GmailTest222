@@ -48,29 +48,31 @@ public class GmailMainPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void openSettings(){
-        waitElement(driver,5,settingsImg);
+    public void openSettings() {
+        waitElement(driver, 5, settingsImg);
         settingsImg.click();
         settingsInMenu.click();
     }
 
-    public void logout(String email){
+    public void logout(String email) {
         driver.findElement(By.linkText(email)).click();
-//        userMenuArrow.click();
+        WebDriverWait wait = new WebDriverWait(driver, 3);
+        wait.until(ExpectedConditions.elementToBeClickable(signOut));
         signOut.click();
     }
 
-    public void clickMore(){
+    public void clickMore() {
         moreButton.click();
     }
 
-    public void clickTrashButton(){
+    public void clickTrashButton() {
         trashButton.click();
     }
 
-    public void clickImportantButton(){
+    public void clickImportantButton() {
         importantButton.click();
     }
+
     public void waitUntilInbox() {
 
         ExpectedCondition<Boolean> expectedUrl = new ExpectedCondition<Boolean>() {
@@ -82,8 +84,8 @@ public class GmailMainPage {
         (new WebDriverWait(driver, 60)).until(expectedUrl);
     }
 
-    public void waitElement(WebDriver driver, int time, WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver,time);
+    public void waitElement(WebDriver driver, int time, WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, time);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 }

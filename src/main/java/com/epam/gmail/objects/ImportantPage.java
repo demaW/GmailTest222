@@ -46,10 +46,10 @@ public class ImportantPage {
         (new WebDriverWait(driver, 60)).until(expectedUrl);
     }
 
-    public boolean checkEmailPresenceImportant(List<WebElement> elements,String expectedSubject){
+    public boolean checkEmailPresenceImportant(List<WebElement> elements, String expectedSubject) {
         boolean result = false;
         GmailMainPageBO gmailMainPageBO = new GmailMainPageBO();
-        for(int i=0; i<100000;){
+        for (int i = 0; i < 100000; ) {
             for (WebElement webElement : elements) {
                 if (webElement.getText().contains(expectedSubject))
                     return true;

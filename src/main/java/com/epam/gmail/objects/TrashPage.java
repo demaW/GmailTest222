@@ -25,7 +25,7 @@ public class TrashPage {
         PageFactory.initElements(driver, this);
     }
 
-    public List<WebElement> getSubjects(){
+    public List<WebElement> getSubjects() {
         return subjects;
     }
 }
