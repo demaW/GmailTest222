@@ -90,8 +90,6 @@ public class GmailTest {
         inboxPageBO.navigateInbox();
         Assert.assertTrue(inboxPageBO.verifyEmailPresence(EMAIL_SUBJECT), "message was not found in Inbox");
         importantPageBO = new ImportantPageBO();
-        /*gmailMainPageBO.navigateImportant();
-        Assert.assertTrue(importantPageBO.verifyEmailPresence(EMAIL_SUBJECT), "message was not found in Important");*/
         //Step 19: login user3
         gmailMainPageBO.navigateInbox();
         gmailMainPageBO.logout(USERNAME2);
