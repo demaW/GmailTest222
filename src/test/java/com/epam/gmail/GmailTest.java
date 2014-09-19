@@ -97,7 +97,7 @@ public class GmailTest {
         gmailHomeBO.login(USERNAME3,PASSWORD3);
         //Step 20: check that user letter from user1 in Inbox
         inboxPageBO.navigateInbox();
-        Assert.assertTrue(inboxPageBO.verifyEmailPresence(EMAIL_SUBJECT), "message was not found in Inbox");
+        Assert.assertTrue(inboxPageBO.verifyEmailPresence(EMAIL_SUBJECT), "message was not found in Inbox, unfortunately");
         gmailMainPageBO.navigateImportant();
         Assert.assertTrue(importantPageBO.verifyEmailPresence(EMAIL_SUBJECT), "message was not found in Important");
     }
