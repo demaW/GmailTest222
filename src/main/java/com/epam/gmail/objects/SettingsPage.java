@@ -46,6 +46,7 @@ public class SettingsPage {
     private WebElement filtersHyperlink;
     @FindBy(xpath = SAVE_CHANGES_BUTTON)
     private WebElement saveChangesButton;
+
     private WebDriver driver;
 
     public SettingsPage() {
