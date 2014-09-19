@@ -84,6 +84,7 @@ public class SettingsPage {
             selectE.sendKeys(Keys.ENTER);
         }
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.navigate().refresh();
         addForwardingAdressAction(userMail);
     }
 

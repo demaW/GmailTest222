@@ -56,7 +56,8 @@ public class GmailMainPage {
 
     public void logout(String email){
         driver.findElement(By.linkText(email)).click();
-//        userMenuArrow.click();
+        WebDriverWait wait = new WebDriverWait(driver,3);
+        wait.until(ExpectedConditions.elementToBeClickable(signOut));
         signOut.click();
     }
 
