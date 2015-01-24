@@ -3,6 +3,7 @@
     <test name="GmailTests">
         <classes>
             <class name="com.epam.gmail.GmailTest"/>
+            <class name="com.epam.gmail.GmailClassSend"/>
         </classes>
     </test>
 </suite>
