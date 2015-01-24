@@ -48,7 +48,7 @@ public class GmailTest {
         gmailMainPageBO = new GmailMainPageBO();
         gmailMainPageBO.openSettings();
         //Step 4,5: set Forwarding
-        settingsPageBO = new SettingsPageBO();
+        /*  settingsPageBO = new SettingsPageBO();
         settingsPageBO.setForwarding(USERNAME3);
         gmailMainPageBO.logout(USERNAME2);
         //Step 6: login user3
@@ -98,6 +98,6 @@ public class GmailTest {
         inboxPageBO.navigateInbox();
         Assert.assertTrue(inboxPageBO.verifyEmailPresence(EMAIL_SUBJECT), "message was not found in Inbox");
         gmailMainPageBO.navigateImportant();
-        Assert.assertTrue(importantPageBO.verifyEmailPresence(EMAIL_SUBJECT), "message was not found in Important");
+        Assert.assertTrue(importantPageBO.verifyEmailPresence(EMAIL_SUBJECT), "message was not found in Important");*/
     }
 }
