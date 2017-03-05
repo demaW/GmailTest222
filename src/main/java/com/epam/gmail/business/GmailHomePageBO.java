@@ -13,7 +13,7 @@ public class GmailHomePageBO {
         gmailHomePage.insertUsername(username);
         gmailHomePage.pressNextButton();
         gmailHomePage.insertPass(password);
-        gmailHomePage.chechkSingedIn();
+        gmailHomePage.checkSingedIn();
         gmailHomePage.login();
     }
 }

@@ -47,7 +47,7 @@ public class GmailHomePage {
         signIn.click();
     }
 
-    public void chechkSingedIn() {
+    public void checkSingedIn() {
         if (presistentCookie.isSelected()) {
             presistentCookie.click();
         }
