@@ -47,6 +47,7 @@ public class GmailTest {
         //Step 2,3: open settings
         gmailMainPageBO = new GmailMainPageBO();
         gmailMainPageBO.openSettings();
+
         //Step 4,5: set Forwarding
         /*  settingsPageBO = new SettingsPageBO();
         settingsPageBO.setForwarding(USERNAME3);
