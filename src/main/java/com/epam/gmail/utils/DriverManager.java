@@ -7,7 +7,6 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class DriverManager {
     static final Logger logger = Logger.getLogger(DriverManager.class);
-
     private static RemoteWebDriver instance;
 
     private DriverManager() {
