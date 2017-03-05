@@ -2,6 +2,7 @@ package com.epam.gmail.utils;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -14,8 +15,16 @@ public class DriverManager {
 
     public static WebDriver getDriver() {
         if (instance == null) {
-            instance = new FirefoxDriver();
-            logger.info("new instance of FireFoxDriver created");
+
+            switch (PropertyController.readProperty(PropertyController.WEBRDIVER)) {
+                case "firefox":
+                    instance = new FirefoxDriver();
+                    break;
+                case "chrome":
+                    System.setProperty(PropertyController.CHROMEPATH, PropertyController.getProp().
+                            getProperty(PropertyController.CHROMEPATH));
+                    instance = new ChromeDriver();
+            }
         }
         return instance;
     }

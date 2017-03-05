@@ -14,6 +14,7 @@ public class GmailHomePage {
     private static final String PASSWD = ".//*[@id='Passwd']";
     private static final String EMAIL = ".//*[@id='Email']";
     private static final String PRESISTENT_COOKIE = ".//*[@id='PersistentCookie']";
+    private static final String NEXT_BUTTON = "next";
 
     @FindBy(xpath = EMAIL)
     private WebElement email;
@@ -23,6 +24,8 @@ public class GmailHomePage {
     private WebElement signIn;
     @FindBy(xpath = PRESISTENT_COOKIE)
     private WebElement presistentCookie;
+    @FindBy(id = NEXT_BUTTON)
+    private WebElement nextButton;
 
     private WebDriver driver;
 
@@ -48,5 +51,9 @@ public class GmailHomePage {
         if (presistentCookie.isSelected()) {
             presistentCookie.click();
         }
+    }
+
+    public void pressNextButton() {
+        nextButton.click();
     }
 }

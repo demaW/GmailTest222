@@ -11,6 +11,7 @@ public class GmailHomePageBO {
         gmailHomePage = new GmailHomePage();
         DriverManager.getDriver().get(URL);
         gmailHomePage.insertUsername(username);
+        gmailHomePage.pressNextButton();
         gmailHomePage.insertPass(password);
         gmailHomePage.chechkSingedIn();
         gmailHomePage.login();
