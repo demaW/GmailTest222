@@ -1,9 +1,6 @@
 package com.epam.gmail.elements;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.internal.Coordinates;
 
 import java.util.List;
@@ -95,6 +92,11 @@ public class ElementImpl implements Element {
     }
 
     @Override
+    public Rectangle getRect() {
+        return element.getRect();
+    }
+
+    @Override
     public String getCssValue(String s) {
         return element.getCssValue(s);
     }
@@ -107,5 +109,10 @@ public class ElementImpl implements Element {
     @Override
     public WebElement getWrappedElement() {
         return element;
+    }
+
+    @Override
+    public <X> X getScreenshotAs(OutputType<X> outputType) throws WebDriverException {
+        return null;
     }
 }
