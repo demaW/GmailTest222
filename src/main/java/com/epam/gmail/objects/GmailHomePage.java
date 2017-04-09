@@ -1,5 +1,8 @@
 package com.epam.gmail.objects;
 
+import com.epam.gmail.core.ElementFactory;
+import com.epam.gmail.elements.Input;
+import com.epam.gmail.elements.InputImpl;
 import com.epam.gmail.utils.DriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +20,7 @@ public class GmailHomePage {
     private static final String NEXT_BUTTON = "next";
 
     @FindBy(xpath = EMAIL)
-    private WebElement email;
+    private Input email;
     @FindBy(xpath = PASSWD)
     private WebElement passw;
     @FindBy(xpath = SIGN_IN)
@@ -29,14 +32,12 @@ public class GmailHomePage {
 
     private WebDriver driver;
 
-    public GmailHomePage() {
-        logger.info("Gmail Home page creating");
-        this.driver = DriverManager.getDriver();
-        PageFactory.initElements(driver, this);
+    public static GmailHomePage initialize(WebDriver driver){
+        return ElementFactory.initElements(driver, GmailHomePage.class);
     }
 
     public void insertUsername(String username) {
-        email.sendKeys(username);
+        email.sendKeysAndEnter(username);
     }
 
     public void insertPass(String password) {

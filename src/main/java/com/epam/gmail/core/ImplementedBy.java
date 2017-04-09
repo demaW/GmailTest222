@@ -1,0 +1,24 @@
+package com.epam.gmail.core;
+
+/**
+ * Created by volod on 07-Mar-17.
+ */
+
+import com.epam.gmail.elements.ElementImpl;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * Sets the default implementing class for the annotated interface.
+ */
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface ImplementedBy {
+    /**
+     * Class implementing the interface. (by default)
+     */
+    Class<?> value() default ElementImpl.class;
+}
